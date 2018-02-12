@@ -7,10 +7,6 @@ import static org.junit.Assert.assertEquals;
 public class OuterClassTest {
 
     @Test
-    public void testAdd() {
-        assertEquals(3, 4 - 1);
-    }
-    @Test
     public void testInnerClass() {
         OuterClass.InnerClass oi = new OuterClass().new InnerClass();
         assertEquals(30, oi.foo());
