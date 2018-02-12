@@ -2,6 +2,7 @@ package com.xyzcorp;
 
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 public class FlowerTest {
@@ -11,7 +12,7 @@ public class FlowerTest {
         Flower f = Flower.builder()
                          .latinName("Narcissus")
                          .build();
-        assertEquals("Narcissus", f.getLatinName());
+        assertThat(f.getLatinName()).isEqualTo("Narcissus");
     }
 
     @Test
