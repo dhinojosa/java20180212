@@ -1,0 +1,23 @@
+http://github.com/dhinojosa/java20180212
+
+JavaFX
+Spring/Spring Boot  ***
+AssertJ
+Hibernate
+JavaEE
+  Components:
+    EJB - Enterprise Java Beans
+       Entity - Class represent row in a database
+       Session - Business Verbs.
+         Stateless
+         Stateful
+    JNDI - Java Naming Direct Interface
+    JMS - Java Messaging Service
+    Web -
+    RestFul
+  TomEE
+  IBM - Websphere
+      - Websphere Liberty Profile (like TomEE)
+RXJava
+  Reactive Programming
+
