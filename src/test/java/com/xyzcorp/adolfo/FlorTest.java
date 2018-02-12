@@ -1,10 +1,11 @@
-package com.xyzcorp;
+package com.xyzcorp.adolfo;
 
+import com.xyzcorp.Flower;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FlowerTest {
+public class FlorTest {
 
     @Test
     public void testFlowerBuilder() {
