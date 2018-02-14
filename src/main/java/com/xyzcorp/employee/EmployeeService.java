@@ -1,11 +1,16 @@
 package com.xyzcorp.employee;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.sql.SQLException;
 
+@Component
 public class EmployeeService {
 
     private EmployeeDAO employeeDAO;
 
+    @Autowired
     public EmployeeService(EmployeeDAO employeeDAO) {
         this.employeeDAO = employeeDAO;
     }

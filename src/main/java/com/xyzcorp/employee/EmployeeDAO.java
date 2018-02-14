@@ -1,13 +1,19 @@
 package com.xyzcorp.employee;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+@Component
 public class EmployeeDAO {
 
     private final Connection connection;
 
+    @Autowired
     public EmployeeDAO(Connection connection) {
         this.connection = connection;
     }
