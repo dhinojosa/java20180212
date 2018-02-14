@@ -5,9 +5,12 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalInt;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.IntBinaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -108,5 +111,37 @@ public class BoxTest {
                 .groupingBy(o -> o, Collectors.counting()));
 
         System.out.println(after);
+    }
+
+    @Test
+    public void testMapWithCollectAndAClosure() {
+        int item = 10;
+        Function<String, Integer> f = s -> s.length() + item;
+        List<Integer> collect = Stream.of("Foo", "Bar", "Baz").map(f).collect
+            (Collectors.toList());
+        System.out.println(collect);
+        assertThat(collect).containsExactly(13, 13, 13);
+    }
+
+    @Test
+    public void testMapForEach() {
+        int item = 10;
+        Function<String, Integer> f = s -> s.length() + item;
+        Stream.of("Foo", "Bar", "Baz").map(f).forEach
+            (x -> System.out.println(x));
+    }
+
+
+    public OptionalInt factorial(int number) {
+        return IntStream
+            .range(1, number + 1)
+            .reduce((runningTotal, next) -> {
+                System.out.format("Total: %d, Next: %d\n", runningTotal, next);
+                return runningTotal * next;
+            });
+    }
+    @Test
+    public void whatMathematicalPrincipleIsThis() {
+        assertThat(factorial(5)).isEqualTo(OptionalInt.of(120));
     }
 }
