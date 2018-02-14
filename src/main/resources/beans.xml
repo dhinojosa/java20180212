@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="connection"
+          class="com.xyzcorp.employee.HSQLDBConnectionFactory"
+          factory-method="create"/>
+
+    <!-- bean definitions here -->
+    <bean id="employeeDAO" class="com.xyzcorp.employee.EmployeeDAO">
+        <constructor-arg index="0" ref="connection"/>
+    </bean>
+
+    <bean id="employeeService"
+          class="com.xyzcorp.employee.EmployeeService">
+        <constructor-arg index="0" ref="employeeDAO"/>
+    </bean>
+</beans>
